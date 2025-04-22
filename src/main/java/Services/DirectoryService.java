@@ -1,8 +1,14 @@
+package Services;
+
+import IO.DirectoryPrinter;
+import IO.DirectoryWriter;
+import Util.DirectoryFormatter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class DirecotryService {
+public class DirectoryService {
     private final DirectoryFormatter formatter = new DirectoryFormatter();
     private final DirectoryPrinter printer = new DirectoryPrinter(formatter);
     private final DirectoryWriter writer = new DirectoryWriter(formatter);

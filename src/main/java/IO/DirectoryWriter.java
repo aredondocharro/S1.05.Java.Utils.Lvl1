@@ -1,17 +1,25 @@
+package IO;
+
+import Util.DirectoryFormatter;
+
 import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class DirectoryPrinter {
+public class DirectoryWriter {
     private final DirectoryFormatter formatter;
 
-    public DirectoryPrinter(DirectoryFormatter formatter) {
+    public DirectoryWriter(DirectoryFormatter formatter) {
         this.formatter = formatter;
     }
 
-    public void printDirectoryTree(File directory, int level) {
+
+    public void writeDirectoryTree(File directory, int level, Writer writer) throws IOException {
+
         if (!directory.exists() || !directory.isDirectory()) {
-            System.out.println(formatter.getIndent(level) + "Invalid directory: " + directory.getPath());
+            writer.write(formatter.getIndent(level) + "Invalid directory: " + directory.getPath() + "\n");
             return;
         }
 
@@ -21,11 +29,10 @@ public class DirectoryPrinter {
         Arrays.sort(files, Comparator.comparing(f -> f.getName().toLowerCase()));
 
         for (File file : files) {
-            System.out.println(formatter.formatFile(file, level));
+            writer.write(formatter.formatFile(file, level) + "\n");
             if (file.isDirectory()) {
-                printDirectoryTree(file, level + 1);
+                writeDirectoryTree(file, level + 1, writer);
             }
         }
     }
-
 }

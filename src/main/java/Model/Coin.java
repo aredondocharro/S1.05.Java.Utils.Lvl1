@@ -1,3 +1,5 @@
+package Model;
+
 import java.io.Serializable;
 
 public class Coin implements Serializable {
@@ -11,7 +13,7 @@ public class Coin implements Serializable {
 
     @Override
     public String toString() {
-        return "Coin[" +
+        return "Model.Coin[" +
                 "Name = '" + name + '\'' +
                 ", Quantity = " + quantity +
                 ']';

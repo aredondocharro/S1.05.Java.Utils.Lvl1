@@ -1,3 +1,6 @@
+package IO;
+
+import Model.Coin;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
