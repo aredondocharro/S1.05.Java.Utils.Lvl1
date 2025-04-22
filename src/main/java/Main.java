@@ -11,7 +11,7 @@ public class Main {
         String readFile = "FileToBeRead.txt";
         String serPath = "Model.Coin.ser";
         DirectoryService service = new DirectoryService();
-        service.printListDirectory(entryPath); //exercise 2
+        service.printListDirectory(entryPath); //exercise 1&2
         service.writeListDirectory(entryPath,outPath);//exercise 3
         FileReader.ReadFile(readFile); //exercise 4
         SerializeWriter.CoinToSer(CoinManager.CoinMaker(),serPath);//exercise 5
